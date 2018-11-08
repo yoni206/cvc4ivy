@@ -44,13 +44,13 @@
 
 (declare-fun leader2 () (Set node))
 (declare-fun pending2 () (Set (Tuple id node)))
-;(assert (transition leader1 leader2 pending1 pending2))
+(assert (transition leader1 leader2 pending1 pending2))
 
 (declare-fun leader3 () (Set node))
 (declare-fun pending3 () (Set (Tuple id node)))
-;(assert (transition leader2 leader3 pending2 pending3))
+(assert (transition leader2 leader3 pending2 pending3))
 
-;(assert (not (safety leader3 pending3)))
+(assert (not (safety leader3 pending3)))
 
 (check-sat)
 ;(get-value (leader0 pending0 leader1 pending1 leader2 pending2 leader3 pending3))
