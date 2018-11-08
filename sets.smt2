@@ -1,0 +1,5 @@
+(set-logic ALL)
+(declare-fun s () (Set Int))
+(assert (= s (as univset (Set Int))))
+(check-sat)
+(get-value (s))
