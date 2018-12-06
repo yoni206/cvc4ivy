@@ -28,7 +28,7 @@
 (define-fun initial_state ((l (Set node)) (p pending_relation)) Bool (and (= l (as emptyset (Set node))) (= p (as emptyset pending_relation))))
 (define-fun transition_l ((l (Set node)) (ll (Set node)) (p pending_relation) (pp pending_relation) ) Bool (forall ((n node)) (= (or (member n l) (member (mkTuple (idn n) n) p))  (member n ll)) ))
 (define-fun transition_p ((l (Set node)) (ll (Set node)) (p pending_relation) (pp pending_relation) ) Bool (forall ((n node) (m id)) (= (or (= m (idn n)) (member (mkTuple m (next n)) p) (and  (member (mkTuple m n) p) (< (idn n) m))) (member (mkTuple m (next n)) pp)) ))
-(define-fun transition ((l (Set node)) (ll (Set node)) (p pending_relation) (pp pending_relation)) Bool (and (transition_l l ll p pp) (transition_p l ll p pp) ;) )
+(define-fun transition ((l (Set node)) (ll (Set node)) (p pending_relation) (pp pending_relation)) Bool (and (transition_l l ll p pp) (transition_p l ll p pp) ) )
 (define-fun safety ((l (Set node)) (p pending_relation)) Bool (forall ((x node) (y node)) (=> (and (member x l) (member y l)) (= x y))))
 
 ;bmc

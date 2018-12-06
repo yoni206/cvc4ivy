@@ -44,9 +44,7 @@ module ring_topology(carrier) = {
     axiom btw(W,X,Y) | btw(W,Y,X) | W=X | W=Y | X=Y  # total
     axiom btw(X,Y,Z) -> btw(Y,Z,X)  # cyclic permutations
 
-    #TODO The manual says: "Ideally, a finished program will not contain any occurrence of assume."
-    #TODO Is there no way to elimiate this "assume"?
-    #shouldn't/couldn't be any verification that get_next is deterministic? (y is chosen no deterministically, right?)
+    #TODO shouldn't/couldn't be any verification that get_next is deterministic? (y is chosen no deterministically, right?)
     action get_next(x:carrier) returns (y:carrier) = {
         assume x ~= y & ((Z ~= x & Z ~= y) -> btw(x,y,Z))
     }
